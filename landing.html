@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI专家能力平台 | 让AI专家直接进入企业业务流程</title>
+<meta content="把真实商业经验蒸馏成可调用的 AI 专家，帮助中小企业解决获客、转化、决策、品牌、私域、供应链与组织效率等关键经营问题。" name="description"/>
+<meta content="AI专家,中小企业AI,企业AI专家,经营决策AI,营销获客AI,私域运营AI,B2B销售AI" name="keywords"/>
+<meta content="index,follow,max-image-preview:large" name="robots"/>
+<meta content="AI专家能力平台 | 让AI专家直接进入企业业务流程" property="og:title"/>
+<meta content="不是通用聊天机器人，而是一套面向中小企业真实经营问题的 AI 专家能力系统。" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        surface: "#faf8ff",
+        "on-tertiary": "#ffffff",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-container": "#57657b",
+        "surface-container-highest": "#dae2fd",
+        "inverse-primary": "#b4c5ff",
+        "surface-container-high": "#e2e7ff",
+        "on-error": "#ffffff",
+        "on-surface": "#131b2e",
+        "surface-container-low": "#f2f3ff",
+        "surface-container": "#eaedff",
+        "surface-variant": "#dae2fd",
+        "on-secondary": "#ffffff",
+        "inverse-surface": "#283044",
+        secondary: "#515f74",
+        error: "#ba1a1a",
+        "primary-fixed-dim": "#b4c5ff",
+        "secondary-fixed": "#d5e3fd",
+        "tertiary-fixed-dim": "#dec29a",
+        "surface-tint": "#0053db",
+        "on-primary-container": "#497cff",
+        "error-container": "#ffdad6",
+        primary: "#131b2e",
+        "on-tertiary-container": "#98805d",
+        "on-background": "#131b2e",
+        tertiary: "#131b2e",
+        "secondary-container": "#d5e3fd",
+        "on-primary": "#ffffff",
+        "secondary-fixed-dim": "#b9c7e0",
+        "primary-container": "#00174b",
+        "primary-fixed": "#dbe1ff",
+        "on-tertiary-fixed": "#271901",
+        "tertiary-fixed": "#fcdeb5",
+        "inverse-on-surface": "#eef0ff",
+        "surface-bright": "#faf8ff",
+        "on-secondary-fixed": "#0d1c2f",
+        "on-error-container": "#93000a",
+        "surface-dim": "#d2d9f4",
+        "on-secondary-fixed-variant": "#3a485c",
+        "tertiary-container": "#271901",
+        "on-tertiary-fixed-variant": "#574425",
+        "on-surface-variant": "#45464d",
+        background: "#faf8ff",
+        "outline-variant": "#c6c6cd",
+        outline: "#76777d",
+        "on-primary-fixed-variant": "#003ea8",
+        "on-primary-fixed": "#00174b",
+        // 业务域色
+        domain1: "#0053db",
+        domain2: "#7c3aed",
+        domain3: "#059669",
+        domain4: "#d97706",
+        domain5: "#dc2626",
+        domain6: "#0891b2",
+        "domain1-light": "#dbeafe",
+        "domain2-light": "#ede9fe",
+        "domain3-light": "#d1fae5",
+        "domain4-light": "#fef3c7",
+        "domain5-light": "#fee2e2",
+        "domain6-light": "#cffafe",
+      },
+      borderRadius: {
+        DEFAULT: "0.125rem",
+        lg: "0.25rem",
+        xl: "0.5rem",
+        "2xl": "0.75rem",
+        full: "9999px",
+      },
+      fontFamily: {
+        headline: ["Plus Jakarta Sans"],
+        body: ["Inter"],
+        label: ["Inter"],
+      },
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+.glass-effect {
+  backdrop-filter: blur(24px);
+  background-color: rgba(250, 248, 255, 0.8);
+}
+.expert-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+.domain-tab {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.domain-tab.active {
+  box-shadow: 0 2px 8px rgba(0,83,219,0.15);
+}
+.expert-card {
+  transition: all 0.3s ease;
+}
+.expert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.expert-card:hover .expert-lens {
+  color: #0053db;
+}
+.diff-card {
+  position: relative;
+  overflow: hidden;
+}
+.diff-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  border-radius: 0 0 0 60px;
+}
+.diff-card.is-not::after {
+  background: rgba(186,26,26,0.08);
+}
+.diff-card.is-yes::after {
+  background: rgba(5,150,105,0.08);
+}
+.stage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+}
+.stage-pill:hover {
+  border-color: #0053db;
+}
+.stage-pill.active {
+  background: #0053db;
+  color: #fff;
+  border-color: #0053db;
+}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
+
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 glass-effect bg-[#faf8ff]/90 backdrop-blur-md">
+<div class="flex justify-between items-center h-16 px-6 lg:px-12 max-w-[1440px] mx-auto">
+<div class="text-lg font-bold tracking-tighter text-[#0f172a] font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint" style="font-size:24px;font-variation-settings:'FILL' 1,'wght' 400">psychology</span>
+获客AI
+</div>
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+<a class="text-[#0053db] font-semibold border-b-2 border-[#0053db] pb-1" href="#experts">专家能力</a>
+<a class="text-slate-600 hover:text-[#0053db] transition-colors duration-200" href="#problems">解决问题</a>
+<a class="text-slate-600 hover:text-[#0053db] transition-colors duration-200" href="#match">行业匹配</a>
+<a class="text-slate-600 hover:text-[#0053db] transition-colors duration-200" href="#diff">为什么不同</a>
+<a class="text-slate-600 hover:text-[#0053db] transition-colors duration-200" href="#workflow">使用方式</a>
+<a class="text-slate-600 hover:text-[#0053db] transition-colors duration-200" href="#cta">预约咨询</a>
+</div>
+<a href="./workspace/" target="_parent" class="bg-surface-tint text-on-primary px-5 py-2 rounded-sm font-semibold text-sm">立即使用</a>
+</div>
+</nav>
+
+<!-- Expert Capability Grid — 6大业务域 × 专家 -->
+<section class="pt-28 pb-20 lg:pt-32 lg:pb-28 bg-surface" id="experts">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4">6大业务域 · 24位AI专家</h2>
+<p class="text-secondary max-w-2xl mx-auto">每个专家都有明确的核心镜片——他看问题的方式、解决的场景和能力的边界。不是泛泛问答，而是面向具体业务问题的专业能力。</p>
+</div>
+
+<!-- Domain 1: 营销获客 -->
+<div class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-domain1-light flex items-center justify-center">
+<span class="material-symbols-outlined text-domain1" style="font-size:22px">campaign</span>
+</div>
+<h3 class="text-xl font-bold font-headline">营销获客</h3>
+<span class="text-xs text-secondary ml-1">客户从哪来、广告为什么没效果</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain1 text-white text-xs font-bold flex items-center justify-center">马</span>
+<div>
+<div class="font-bold text-sm">小马宋</div>
+<div class="text-[10px] text-secondary">营销落地第一人</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">营销不是创意竞赛，而是让产品更容易被理解、被记住、被购买。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 产品卖不动、传播有效不转化</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain1 text-white text-xs font-bold flex items-center justify-center">杉</span>
+<div>
+<div class="font-bold text-sm">华杉</div>
+<div class="text-[10px] text-secondary">超级符号·品牌定位</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">品牌首先是认知占位，不是审美表达。让人一秒认出来。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 品牌记不住、差异讲不明白</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain1 text-white text-xs font-bold flex items-center justify-center">叶</span>
+<div>
+<div class="font-bold text-sm">叶茂中</div>
+<div class="text-[10px] text-secondary">冲突营销</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">营销增长往往来自冲突，不来自平淡正确。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 卖点太平、用户痛点抓不住</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain1 text-white text-xs font-bold flex items-center justify-center">金</span>
+<div>
+<div class="font-bold text-sm">金错刀</div>
+<div class="text-[10px] text-secondary">爆品战略</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">中小企业不是缺产品，而是缺"能被市场迅速认出来的爆点产品"。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ SKU太多、没有拳头产品</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain1 text-white text-xs font-bold flex items-center justify-center">琦</span>
+<div>
+<div class="font-bold text-sm">张琦</div>
+<div class="text-[10px] text-secondary">新商业增长</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">传统企业转型，先补新流量能力，再谈新组织能力。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 传统转线上、短视频获客</div>
+</div>
+
+</div>
+</div>
+
+<!-- Domain 2: 销售转化 -->
+<div class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-domain2-light flex items-center justify-center">
+<span class="material-symbols-outlined text-domain2" style="font-size:22px">shopping_cart</span>
+</div>
+<h3 class="text-xl font-bold font-headline">销售转化</h3>
+<span class="text-xs text-secondary ml-1">客户来了不成交、报价后没下文</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain2 text-white text-xs font-bold flex items-center justify-center">浩</span>
+<div>
+<div class="font-bold text-sm">罗永浩</div>
+<div class="text-[10px] text-secondary">直播带货方法论</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">销售不是推货，而是把注意力、信任和购买冲动串成一条线。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 直播冷场、销售内容平、产品介绍没感染力</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain2 text-white text-xs font-bold flex items-center justify-center">琦</span>
+<div>
+<div class="font-bold text-sm">李佳琦</div>
+<div class="text-[10px] text-secondary">促单技巧</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">促单不是催单，而是把犹豫成本压到最低。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 客户犹豫、促销设计、零售转化</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain2 text-white text-xs font-bold flex items-center justify-center">费</span>
+<div>
+<div class="font-bold text-sm">费曼</div>
+<div class="text-[10px] text-secondary">把复杂说简单</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">你讲不清，不是对方笨，是你自己没搞懂。把复杂压缩成一句话。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 产品说不清、客户听不懂、沟通低效</div>
+</div>
+
+</div>
+</div>
+
+<!-- Domain 3: 经营决策 -->
+<div class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-domain3-light flex items-center justify-center">
+<span class="material-symbols-outlined text-domain3" style="font-size:22px">balance</span>
+</div>
+<h3 class="text-xl font-bold font-headline">经营决策</h3>
+<span class="text-xs text-secondary ml-1">拍脑袋决策、踩坑成本高</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain3 text-white text-xs font-bold flex items-center justify-center">芒</span>
+<div>
+<div class="font-bold text-sm">芒格</div>
+<div class="text-[10px] text-secondary">决策检查清单</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">决策质量来自少犯蠢，而不是频繁显聪明。先反过来问怎么会死。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 重大投资、合作、扩张前的决策检查</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain3 text-white text-xs font-bold flex items-center justify-center">段</span>
+<div>
+<div class="font-bold text-sm">段永平</div>
+<div class="text-[10px] text-secondary">本分经营</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">本分不是道德姿态，而是长期经营的低熵系统。只做懂的，只赚该赚的。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 乱投资、追风口、主业跑偏</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain3 text-white text-xs font-bold flex items-center justify-center">润</span>
+<div>
+<div class="font-bold text-sm">刘润</div>
+<div class="text-[10px] text-secondary">商业逻辑拆解</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">商业问题先拆逻辑，再谈结论。让团队先达成"怎么理解问题"的一致。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 战略讲不清、跨部门讨论发散</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain3 text-white text-xs font-bold flex items-center justify-center">塔</span>
+<div>
+<div class="font-bold text-sm">塔勒布</div>
+<div class="text-[10px] text-secondary">反脆弱思维</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">先活下来，再考虑赚大钱。避免单点脆弱，看尾部风险。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 现金流紧绷、客户集中、单点失败</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain3 text-white text-xs font-bold flex items-center justify-center">曹</span>
+<div>
+<div class="font-bold text-sm">曹德旺</div>
+<div class="text-[10px] text-secondary">实业经营心法</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">制造业没有花活，主业扎实、成本纪律、现金流和组织稳定才是命门。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 逆周期管理、实业经营、浮躁转型</div>
+</div>
+
+</div>
+</div>
+
+<!-- Domain 4: 产品品牌 -->
+<div class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-domain4-light flex items-center justify-center">
+<span class="material-symbols-outlined text-domain4" style="font-size:22px">diamond</span>
+</div>
+<h3 class="text-xl font-bold font-headline">产品品牌</h3>
+<span class="text-xs text-secondary ml-1">产品做太多没人买、品牌做不起来</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain4 text-white text-xs font-bold flex items-center justify-center">乔</span>
+<div>
+<div class="font-bold text-sm">乔布斯</div>
+<div class="text-[10px] text-secondary">产品聚焦·做减法</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">伟大产品来自极致聚焦和残酷取舍。知道不做什么。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 产品线过长、体验割裂、什么都想做</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain4 text-white text-xs font-bold flex items-center justify-center">宁</span>
+<div>
+<div class="font-bold text-sm">梁宁</div>
+<div class="text-[10px] text-secondary">产品思维·需求洞察</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">产品机会来自对人、场景、欲望与痛点的深刻理解。区分痛点、痒点、爽点。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 判断产品机会、需求取舍、方向选择</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain4 text-white text-xs font-bold flex items-center justify-center">军</span>
+<div>
+<div class="font-bold text-sm">俞军</div>
+<div class="text-[10px] text-secondary">产品决策模型</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">产品决策的核心是用户价值与交易成本的权衡。别把"需求声音大"误当"用户价值高"。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 功能优先级、需求评审、产品决策</div>
+</div>
+
+</div>
+</div>
+
+<!-- Domain 5: 私域增长 -->
+<div class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-domain5-light flex items-center justify-center">
+<span class="material-symbols-outlined text-domain5" style="font-size:22px">group</span>
+</div>
+<h3 class="text-xl font-bold font-headline">私域增长</h3>
+<span class="text-xs text-secondary ml-1">客户买一次就跑、复购低、不会做私域</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain5 text-white text-xs font-bold flex items-center justify-center">鸦</span>
+<div>
+<div class="font-bold text-sm">白鸦</div>
+<div class="text-[10px] text-secondary">私域三角方法论</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">私域不是拉群，而是可反复触达的经营资产。推荐率和复购率比表面活跃更重要。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 复购低、私域没经营逻辑</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain5 text-white text-xs font-bold flex items-center justify-center">叶</span>
+<div>
+<div class="font-bold text-sm">秋叶大叔</div>
+<div class="text-[10px] text-secondary">创始人IP·信任资产</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">个人IP的本质是可持续输出带来的信任资产。持续输出比偶发爆款更重要。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 创始人IP、知识变现、老板出镜</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain5 text-white text-xs font-bold flex items-center justify-center">亦</span>
+<div>
+<div class="font-bold text-sm">亦仁</div>
+<div class="text-[10px] text-secondary">信息差·小闭环验证</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">赚钱的第一性问题不是"我会什么"，而是"哪里存在可验证的信息差和小闭环"。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 副业起步、方向选择、机会验证</div>
+</div>
+
+</div>
+</div>
+
+<!-- Domain 6: 组织·供应链 -->
+<div class="mb-4">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-domain6-light flex items-center justify-center">
+<span class="material-symbols-outlined text-domain6" style="font-size:22px">precision_manufacturing</span>
+</div>
+<h3 class="text-xl font-bold font-headline">组织·供应链</h3>
+<span class="text-xs text-secondary ml-1">人效低、库存积压、供应商混乱、股权不清</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain6 text-white text-xs font-bold flex items-center justify-center">卫</span>
+<div>
+<div class="font-bold text-sm">卫哲</div>
+<div class="text-[10px] text-secondary">效率为王</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">经营先算账，再谈情怀。盯人效、坪效、现金流，让每个动作回到账面。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 人效低、成本失控、连锁运营</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain6 text-white text-xs font-bold flex items-center justify-center">彭</span>
+<div>
+<div class="font-bold text-sm">彭剑锋</div>
+<div class="text-[10px] text-secondary">组织与人才体系</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">组织不是人多，而是机制、梯队、激励和文化形成系统。绩效和激励必须闭环。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 组织设计、人才梯队、薪酬绩效</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain6 text-white text-xs font-bold flex items-center justify-center">司</span>
+<div>
+<div class="font-bold text-sm">司徒开平</div>
+<div class="text-[10px] text-secondary">供应链实战</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">供应链不是后端支持，而是利润和交付能力的核心来源。库存是最隐蔽的负债。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 降本增效、交期失控、库存积压</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain6 text-white text-xs font-bold flex items-center justify-center">黄</span>
+<div>
+<div class="font-bold text-sm">黄怡然</div>
+<div class="text-[10px] text-secondary">股权·控制权设计</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">股权不是奖励，而是对未来价值与控制权的制度安排。控制权要先设计底线。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 合伙分股、期权池、融资稀释</div>
+</div>
+
+<div class="expert-card bg-surface-container-lowest p-6 border border-outline-variant/10 rounded-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-8 h-8 rounded-full bg-domain6 text-white text-xs font-bold flex items-center justify-center">N</span>
+<div>
+<div class="font-bold text-sm">Naval</div>
+<div class="text-[10px] text-secondary">杠杆·财富放大</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed mb-3 expert-lens transition-colors">财富来自杠杆，而不是持续出卖时间。优先建设代码、媒体、资本、品牌这些可复制杠杆。</p>
+<div class="text-[10px] text-on-surface-variant font-medium">→ 从"自己干"转向"系统赚钱"</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Hero Section -->
+<header class="relative pt-36 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-surface">
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#0053db_0%,transparent_50%)]"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="max-w-3xl">
+<div class="inline-flex items-center space-x-2 px-3 py-1 bg-surface-container-high rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-surface-tint">AI Expert Capability Platform</span>
+</div>
+<h1 class="text-4xl lg:text-[3.5rem] leading-[1.1] font-extrabold tracking-tighter font-headline mb-6 text-on-surface">
+让AI专家直接进入<br/>企业业务流程
+</h1>
+<p class="text-lg text-secondary leading-relaxed mb-8 max-w-xl">
+把真实商业经验蒸馏成可调用的 AI 专家，帮助中小企业解决获客、转化、经营决策、品牌定位、私域运营、供应链优化等关键问题。<span class="font-semibold text-on-surface">不做泛泛问答，只做面向场景的专业能力。</span>
+</p>
+<div class="flex flex-wrap items-center gap-4">
+<a href="./workspace/" target="_parent" class="bg-surface-tint text-white px-8 py-3.5 rounded-sm font-bold tracking-wide hover:opacity-90 transition-opacity inline-block">立即使用</a>
+<a href="./workspace/" target="_parent" class="px-8 py-3.5 border-b-2 border-outline-variant font-bold text-on-surface hover:border-surface-tint transition-all inline-block">进入工作台</a>
+</div>
+<div class="flex flex-wrap gap-3 mt-10">
+<span class="expert-tag bg-domain1-light text-domain1">营销获客</span>
+<span class="expert-tag bg-domain2-light text-domain2">销售转化</span>
+<span class="expert-tag bg-domain3-light text-domain3">经营决策</span>
+<span class="expert-tag bg-domain4-light text-domain4">产品品牌</span>
+<span class="expert-tag bg-domain5-light text-domain5">私域增长</span>
+<span class="expert-tag bg-domain6-light text-domain6">组织·供应链</span>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Common Business Challenges — 每张卡片关联专家 -->
+<section class="py-20 lg:py-28 bg-surface-container-low" id="problems">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4">直击增长痛点</h2>
+<p class="text-secondary max-w-lg">这些不是假设——是中小企业每天都在面对的真实经营问题。每个问题背后，都有对应的专家能力可以调用。</p>
+</div>
+<div class="h-px flex-grow bg-outline-variant/20 mx-8 hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 hover:translate-y-[-4px] transition-transform duration-300 border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl text-surface-tint mb-5 block" style="font-size:32px">person_search</span>
+<h3 class="text-lg font-bold font-headline mb-3">客户从哪来</h3>
+<p class="text-sm text-secondary leading-relaxed mb-4">广告投了没效果、不投更没客户，市场机会在哪里，先把获客问题看清楚。</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="expert-tag bg-domain1-light text-domain1">小马宋</span>
+<span class="expert-tag bg-domain1-light text-domain1">华杉</span>
+<span class="expert-tag bg-domain1-light text-domain1">金错刀</span>
+<span class="expert-tag bg-domain1-light text-domain1">张琦</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 hover:translate-y-[-4px] transition-transform duration-300 border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl text-surface-tint mb-5 block" style="font-size:32px">handshake</span>
+<h3 class="text-lg font-bold font-headline mb-3">客户来了不成交</h3>
+<p class="text-sm text-secondary leading-relaxed mb-4">报价后没下文、复杂产品讲不清楚、直播冷场促不了单，这些都属于销售转化问题。</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="expert-tag bg-domain2-light text-domain2">罗永浩</span>
+<span class="expert-tag bg-domain2-light text-domain2">李佳琦</span>
+<span class="expert-tag bg-domain2-light text-domain2">费曼</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 hover:translate-y-[-4px] transition-transform duration-300 border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl text-surface-tint mb-5 block" style="font-size:32px">inventory_2</span>
+<h3 class="text-lg font-bold font-headline mb-3">产品卖不动</h3>
+<p class="text-sm text-secondary leading-relaxed mb-4">产品做太多没人买、品牌没人记住、价值说不出来，需要定位与产品判断能力。</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="expert-tag bg-domain4-light text-domain4">乔布斯</span>
+<span class="expert-tag bg-domain4-light text-domain4">梁宁</span>
+<span class="expert-tag bg-domain4-light text-domain4">金错刀</span>
+<span class="expert-tag bg-domain4-light text-domain4">叶茂中</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-8 hover:translate-y-[-4px] transition-transform duration-300 border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl text-surface-tint mb-5 block" style="font-size:32px">troubleshoot</span>
+<h3 class="text-lg font-bold font-headline mb-3">决策总踩坑</h3>
+<p class="text-sm text-secondary leading-relaxed mb-4">拍脑袋决策、踩坑成本高、乱投资追风口，用结构化专家能力替代直觉判断。</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="expert-tag bg-domain3-light text-domain3">芒格</span>
+<span class="expert-tag bg-domain3-light text-domain3">段永平</span>
+<span class="expert-tag bg-domain3-light text-domain3">刘润</span>
+<span class="expert-tag bg-domain3-light text-domain3">塔勒布</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-8 hover:translate-y-[-4px] transition-transform duration-300 border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl text-surface-tint mb-5 block" style="font-size:32px">rebase_edit</span>
+<h3 class="text-lg font-bold font-headline mb-3">客户买一次就跑</h3>
+<p class="text-sm text-secondary leading-relaxed mb-4">复购率低、私域不会做、客户关系断掉，本质是客户经营系统没有建立。</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="expert-tag bg-domain5-light text-domain5">白鸦</span>
+<span class="expert-tag bg-domain5-light text-domain5">秋叶大叔</span>
+<span class="expert-tag bg-domain5-light text-domain5">亦仁</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest p-8 hover:translate-y-[-4px] transition-transform duration-300 border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl text-surface-tint mb-5 block" style="font-size:32px">speed</span>
+<h3 class="text-lg font-bold font-headline mb-3">团队效率低</h3>
+<p class="text-sm text-secondary leading-relaxed mb-4">库存积压、人效低、供应链混乱、组织没体系，本质都是经验没沉淀成流程能力。</p>
+<div class="flex flex-wrap gap-1.5">
+<span class="expert-tag bg-domain6-light text-domain6">卫哲</span>
+<span class="expert-tag bg-domain6-light text-domain6">彭剑锋</span>
+<span class="expert-tag bg-domain6-light text-domain6">司徒开平</span>
+<span class="expert-tag bg-domain6-light text-domain6">曹德旺</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Industry + Stage Matching -->
+<section class="py-20 lg:py-28 bg-surface-container-low" id="match">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+<!-- 行业匹配 -->
+<div class="mb-20">
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4">按行业匹配专家</h2>
+<p class="text-secondary max-w-xl mb-12">不同行业的核心问题不同，需要的专家组合也不同。选择你的行业，看推荐顾问组合。</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10 hover:border-surface-tint hover:shadow-md transition-all">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-domain6" style="font-size:28px">factory</span>
+<h4 class="text-lg font-bold font-headline">制造业</h4>
+</div>
+<p class="text-sm text-secondary leading-relaxed mb-5">供应链协同、库存周转、组织效率和大客户推进。</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+<span class="text-xs font-medium">司徒开平 + 曹德旺 → 供应链与实业经营</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-xs text-secondary">小马宋 + 金错刀 → 产品怎么卖出去</span>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10 hover:border-surface-tint hover:shadow-md transition-all">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-domain2" style="font-size:28px">storefront</span>
+<h4 class="text-lg font-bold font-headline">零售/电商</h4>
+</div>
+<p class="text-sm text-secondary leading-relaxed mb-5">获客、转化、私域复购、内容增长与单客价值提升。</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+<span class="text-xs font-medium">罗永浩 + 白鸦 → 直播与私域闭环</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-xs text-secondary">华杉 + 卫哲 → 品牌差异化与效率</span>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10 hover:border-surface-tint hover:shadow-md transition-all">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-domain4" style="font-size:28px">cloud</span>
+<h4 class="text-lg font-bold font-headline">SaaS / 专业服务</h4>
+</div>
+<p class="text-sm text-secondary leading-relaxed mb-5">复杂产品讲不清、销售推进慢、商业逻辑难统一。</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+<span class="text-xs font-medium">费曼 + 刘润 → 说清产品与逻辑拆解</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-xs text-secondary">梁宁 + 黄怡然 → 产品与股权设计</span>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10 hover:border-surface-tint hover:shadow-md transition-all">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-domain5" style="font-size:28px">restaurant</span>
+<h4 class="text-lg font-bold font-headline">餐饮/服务业</h4>
+</div>
+<p class="text-sm text-secondary leading-relaxed mb-5">品牌让顾客记住、营销落地、私域复购与短视频引流。</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+<span class="text-xs font-medium">华杉 + 小马宋 → 品牌记忆与营销落地</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-xs text-secondary">白鸦 + 张琦 → 私域复购与短视频获客</span>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10 hover:border-surface-tint hover:shadow-md transition-all">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-domain1" style="font-size:28px">flight_takeoff</span>
+<h4 class="text-lg font-bold font-headline">外贸/跨境</h4>
+</div>
+<p class="text-sm text-secondary leading-relaxed mb-5">供应链管理、商业模式优化、产品出海与增长节奏。</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+<span class="text-xs font-medium">司徒开平 + 刘润 → 供应链与商业模式</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-xs text-secondary">小马宋 + 亦仁 → 产品出海与机会验证</span>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/10 hover:border-surface-tint hover:shadow-md transition-all flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-surface-tint mb-3" style="font-size:32px;font-variation-settings:'FILL' 0,'wght' 300">help_outline</span>
+<h4 class="text-lg font-bold font-headline mb-2">不确定你的行业？</h4>
+<p class="text-sm text-secondary mb-4">告诉我们你的问题和现状，<br/>我们帮你匹配适合的专家组合。</p>
+<a href="#cta" class="text-surface-tint text-sm font-bold hover:underline">获取专属顾问 →</a>
+</div>
+
+</div>
+</div>
+
+<!-- 阶段推荐 -->
+<div>
+<h2 class="text-3xl font-extrabold font-headline tracking-tight text-on-surface mb-4">按发展阶段匹配</h2>
+<p class="text-secondary max-w-xl mb-8">企业在不同阶段面临的核心挑战不同，需要的专家优先级也不同。</p>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+<div class="bg-surface-container-lowest p-8 border-l-4 border-domain1">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-xs font-bold text-domain1 uppercase tracking-widest">0-1 年</span>
+<span class="text-lg font-bold font-headline">初创期</span>
+</div>
+<p class="text-sm text-secondary mb-5">活下来是第一要务</p>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain1-light flex items-center justify-center text-[10px] font-bold text-domain1 mt-0.5 shrink-0">1</span>
+<div>
+<div class="text-sm font-bold">小马宋</div>
+<div class="text-xs text-secondary">产品怎么卖出去，没销售就没活路</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain1-light flex items-center justify-center text-[10px] font-bold text-domain1 mt-0.5 shrink-0">2</span>
+<div>
+<div class="text-sm font-bold">费曼</div>
+<div class="text-xs text-secondary">把产品说清楚，客户听不懂就不会买</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain1-light flex items-center justify-center text-[10px] font-bold text-domain1 mt-0.5 shrink-0">3</span>
+<div>
+<div class="text-sm font-bold">芒格</div>
+<div class="text-xs text-secondary">一个错误决策就关门，先别踩坑</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain1-light flex items-center justify-center text-[10px] font-bold text-domain1 mt-0.5 shrink-0">4</span>
+<div>
+<div class="text-sm font-bold">金错刀</div>
+<div class="text-xs text-secondary">资源有限，先做一个爆品</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border-l-4 border-domain3">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-xs font-bold text-domain3 uppercase tracking-widest">1-3 年</span>
+<span class="text-lg font-bold font-headline">成长期</span>
+</div>
+<p class="text-sm text-secondary mb-5">规模化增长</p>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain3-light flex items-center justify-center text-[10px] font-bold text-domain3 mt-0.5 shrink-0">1</span>
+<div>
+<div class="text-sm font-bold">华杉</div>
+<div class="text-xs text-secondary">品牌让人记住，从无名到有名</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain3-light flex items-center justify-center text-[10px] font-bold text-domain3 mt-0.5 shrink-0">2</span>
+<div>
+<div class="text-sm font-bold">白鸦</div>
+<div class="text-xs text-secondary">复购比获客便宜，私域必须建</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain3-light flex items-center justify-center text-[10px] font-bold text-domain3 mt-0.5 shrink-0">3</span>
+<div>
+<div class="text-sm font-bold">刘润</div>
+<div class="text-xs text-secondary">团队要听得懂战略，逻辑先统一</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain3-light flex items-center justify-center text-[10px] font-bold text-domain3 mt-0.5 shrink-0">4</span>
+<div>
+<div class="text-sm font-bold">黄怡然</div>
+<div class="text-xs text-secondary">合伙人/核心员工股权绑定</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-lowest p-8 border-l-4 border-domain4">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-xs font-bold text-domain4 uppercase tracking-widest">3 年+</span>
+<span class="text-lg font-bold font-headline">成熟期</span>
+</div>
+<p class="text-sm text-secondary mb-5">效率与风控</p>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain4-light flex items-center justify-center text-[10px] font-bold text-domain4 mt-0.5 shrink-0">1</span>
+<div>
+<div class="text-sm font-bold">段永平</div>
+<div class="text-xs text-secondary">管住手不乱投，守住才是本事</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain4-light flex items-center justify-center text-[10px] font-bold text-domain4 mt-0.5 shrink-0">2</span>
+<div>
+<div class="text-sm font-bold">卫哲</div>
+<div class="text-xs text-secondary">人效坪效要算账，效率不能含糊</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain4-light flex items-center justify-center text-[10px] font-bold text-domain4 mt-0.5 shrink-0">3</span>
+<div>
+<div class="text-sm font-bold">塔勒布</div>
+<div class="text-xs text-secondary">风控到位，别一次翻船</div>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-domain4-light flex items-center justify-center text-[10px] font-bold text-domain4 mt-0.5 shrink-0">4</span>
+<div>
+<div class="text-sm font-bold">彭剑锋</div>
+<div class="text-xs text-secondary">人多了要体系，组织能力跟上</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Differentiation: 和普通AI有什么不同 -->
+<section class="py-20 lg:py-28 bg-surface" id="diff">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4">和普通AI有什么不同？</h2>
+<p class="text-secondary max-w-2xl mx-auto">这不是换个皮的聊天机器人，而是一套围绕真实业务问题设计的结构化专家能力系统。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+<div class="space-y-5">
+<div class="text-xs font-bold text-error uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size:16px">close</span>
+普通AI助手
+</div>
+<div class="diff-card is-not bg-error-container/30 p-6 border-l-4 border-error/40">
+<div class="font-bold text-sm mb-1">通用问答</div>
+<div class="text-xs text-secondary">什么都能聊，但都不够深入</div>
+</div>
+<div class="diff-card is-not bg-error-container/30 p-6 border-l-4 border-error/40">
+<div class="font-bold text-sm mb-1">空泛建议</div>
+<div class="text-xs text-secondary">"你可以考虑做营销"——然后呢？</div>
+</div>
+<div class="diff-card is-not bg-error-container/30 p-6 border-l-4 border-error/40">
+<div class="font-bold text-sm mb-1">没有业务场景</div>
+<div class="text-xs text-secondary">不区分行业、阶段和具体问题</div>
+</div>
+<div class="diff-card is-not bg-error-container/30 p-6 border-l-4 border-error/40">
+<div class="font-bold text-sm mb-1">一次性对话</div>
+<div class="text-xs text-secondary">聊完就散，无法沉淀和复用</div>
+</div>
+</div>
+
+<div class="space-y-5">
+<div class="text-xs font-bold text-domain3 uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size:16px">check</span>
+AI专家能力系统
+</div>
+<div class="diff-card is-yes bg-domain3-light/50 p-6 border-l-4 border-domain3/60">
+<div class="font-bold text-sm mb-1">结构化专家能力</div>
+<div class="text-xs text-secondary">每个专家有明确的核心镜片和边界</div>
+</div>
+<div class="diff-card is-yes bg-domain3-light/50 p-6 border-l-4 border-domain3/60">
+<div class="font-bold text-sm mb-1">面向具体问题</div>
+<div class="text-xs text-secondary">不是"考虑做营销"，而是用小马宋的方法帮你落地</div>
+</div>
+<div class="diff-card is-yes bg-domain3-light/50 p-6 border-l-4 border-domain3/60">
+<div class="font-bold text-sm mb-1">按行业·阶段·问题匹配</div>
+<div class="text-xs text-secondary">制造业选司徒开平，零售选白鸦，初创选小马宋</div>
+</div>
+<div class="diff-card is-yes bg-domain3-light/50 p-6 border-l-4 border-domain3/60">
+<div class="font-bold text-sm mb-1">可沉淀·可复制·可嵌入流程</div>
+<div class="text-xs text-secondary">经验变成组织能力，不只是聊天记录</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- How It Works -->
+<section class="py-20 lg:py-28 bg-surface-container-low" id="workflow">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4">落地路径：从愿景到现实</h2>
+<p class="text-secondary">这些AI专家不是摆设，而是可以进入真实业务场景，服务决策、诊断、培训与流程协同。</p>
+</div>
+<div class="relative">
+<div class="absolute top-1/2 left-0 w-full h-px bg-outline-variant/30 -translate-y-1/2 hidden lg:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+
+<div class="bg-surface p-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-surface-tint mb-6 border border-surface-tint/20">01</div>
+<h4 class="text-base font-bold font-headline mb-3 text-on-surface">决策前咨询</h4>
+<p class="text-sm text-secondary leading-relaxed">做重大经营动作前，先让AI专家做预判和检查。如"用芒格检查清单帮我过一遍"。</p>
+</div>
+
+<div class="bg-surface p-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-surface-tint mb-6 border border-surface-tint/20">02</div>
+<h4 class="text-base font-bold font-headline mb-3 text-on-surface">问题诊断</h4>
+<p class="text-sm text-secondary leading-relaxed">围绕当前症状做结构化拆解。如"产品卖不动，用小马宋思维帮我诊断问题在哪"。</p>
+</div>
+
+<div class="bg-surface p-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-surface-tint mb-6 border border-surface-tint/20">03</div>
+<h4 class="text-base font-bold font-headline mb-3 text-on-surface">团队学习培训</h4>
+<p class="text-sm text-secondary leading-relaxed">把老板懂的经验变成团队可反复调用、学习和演练的操作资产。每周一卡，团队共学。</p>
+</div>
+
+<div class="bg-surface p-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-surface-tint mb-6 border border-surface-tint/20">04</div>
+<h4 class="text-base font-bold font-headline mb-3 text-on-surface">业务流程赋能</h4>
+<p class="text-sm text-secondary leading-relaxed">将专家能力嵌入日常流程，让建议生成、动作校验和复盘执行成为组织常态。</p>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Value Proposition -->
+<section class="py-20 lg:py-28 bg-surface overflow-hidden relative" id="results">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-6">
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-6 leading-tight">结构化能力，<br/>可量化的业务价值</h2>
+<p class="text-secondary text-lg leading-relaxed mb-8">真正的价值，是让老板少踩坑，让团队更快做出判断，让经验沉淀成可复制的组织能力。</p>
+<div class="flex items-start space-x-4 p-6 bg-surface-container-lowest border-l-4 border-surface-tint">
+<span class="material-symbols-outlined text-3xl text-surface-tint shrink-0" style="font-variation-settings:'FILL' 1,'wght' 400">auto_awesome</span>
+<p class="text-sm font-medium text-on-surface">帮企业提升经营判断质量、降低试错成本、缩短学习曲线，并提升执行效率。</p>
+</div>
+</div>
+<div class="lg:col-span-6">
+<div class="grid grid-cols-2 gap-5">
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center">
+<span class="text-[10px] font-bold text-surface-tint uppercase mb-1 tracking-widest">Decision</span>
+<div class="text-4xl font-extrabold font-headline text-primary mb-1">更稳</div>
+<p class="text-xs text-secondary">重大决策前先检查、先推演、再行动</p>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center">
+<span class="text-[10px] font-bold text-surface-tint uppercase mb-1 tracking-widest">Cost</span>
+<div class="text-4xl font-extrabold font-headline text-primary mb-1">更省</div>
+<p class="text-xs text-secondary">减少低质量试错和重复沟通成本</p>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center">
+<span class="text-[10px] font-bold text-surface-tint uppercase mb-1 tracking-widest">Speed</span>
+<div class="text-4xl font-extrabold font-headline text-primary mb-1">更快</div>
+<p class="text-xs text-secondary">从问题识别到行动路径形成更短</p>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center">
+<span class="text-[10px] font-bold text-surface-tint uppercase mb-1 tracking-widest">System</span>
+<div class="text-4xl font-extrabold font-headline text-primary mb-1">可复制</div>
+<p class="text-xs text-secondary">经验可沉淀、可传递、可复用</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="py-20 lg:py-28 bg-[#00174b]" id="cta">
+<div class="max-w-5xl mx-auto px-6 lg:px-12 text-center">
+<h2 class="text-3xl lg:text-4xl font-extrabold font-headline tracking-tighter text-white mb-6 leading-tight">
+准备让AI专家真正进入<br/>您的业务流程了吗？
+</h2>
+<p class="text-white/60 max-w-lg mx-auto mb-10">告诉我们你的行业和当前问题，我们为你匹配适合的AI专家组合。</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a href="./workspace/" target="_parent" class="bg-surface-tint text-white px-10 py-4 rounded-sm font-bold text-base hover:opacity-90 transition-all inline-block">立即使用</a>
+<a href="./workspace/" target="_parent" class="px-10 py-4 border border-white/20 text-white font-bold text-base hover:bg-white/5 transition-all inline-block">进入工作台</a>
+</div>
+<p class="mt-10 text-white/30 text-xs font-medium tracking-wide">从问题诊断到专家配置，让经验真正变成企业能力资产</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-6 lg:px-12 w-full max-w-[1440px] mx-auto">
+<div class="mb-6 md:mb-0">
+<div class="text-base font-black text-on-surface mb-2 font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint" style="font-size:20px;font-variation-settings:'FILL' 1,'wght' 400">psychology</span>
+获客AI
+</div>
+<p class="text-xs text-secondary max-w-sm">
+面向中小企业真实经营问题的 AI 专家能力系统 · 把经验蒸馏成可调用的专业能力
+</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-xs uppercase tracking-widest text-secondary hover:text-on-surface transition-all" href="#problems">解决问题</a>
+<a class="text-xs uppercase tracking-widest text-secondary hover:text-on-surface transition-all" href="#experts">专家能力</a>
+<a class="text-xs uppercase tracking-widest text-secondary hover:text-on-surface transition-all" href="#match">行业匹配</a>
+<a class="text-xs uppercase tracking-widest text-secondary hover:text-on-surface transition-all" href="#diff">差异化</a>
+<a class="text-xs uppercase tracking-widest text-secondary hover:text-on-surface transition-all" href="#workflow">使用方式</a>
+<a class="text-xs uppercase tracking-widest text-secondary hover:text-on-surface transition-all" href="#cta">预约咨询</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
